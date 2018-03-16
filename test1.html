@@ -4,8 +4,21 @@
        	      <title> We rock the web ! </title>
        </head> 
        <body>
-       	      <script type="text/javascript" src="test1.js">
-       	               
+	       <div id='mydiv'>
+		       <p> Un peu de texte et un lien </p>
+	       </div>
+	       <div id='blocText'>
+		       <p> Encore un peu de texte </p>
+		       <a id="mylink"  href="#"> fake link </a> 
+
+	       </div>
+	<!--  <script type="text/javascript" src="test2.js">-->
+	      <script>
+		      var link = document.getElementById("mylink");
+                      var href = link.getAttribute('href');
+                      
+                      alert(href);
+                      link.setAttribute('href', 'https://www.google.fr/');
        	      </script>
        </body>
 </html>
