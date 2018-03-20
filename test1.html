@@ -2,16 +2,50 @@
 <html>
        <head>
        	      <title> We rock the web ! </title>
+              <style type="text/css">
+               .blue
+	       {
+                  background: blue;
+	          color: white;
+	       }
+	       .size
+	       {
+                  width: 100 %;
+		  height: 30px;
+		  margin: auto;
+	          
+	       }
+              </style>
        </head> 
        <body>
 	       <div id='mydiv'>
-		       <p> Un peu de texte et un lien </p>
+		       <p> Un peu de texte <a> et un lien </a> </p>
 	       </div>
 	       <div id='blocText'>
 		       <p> Encore un peu de texte </p>
 		       <a id="mylink"  href="#"> fake link </a> 
 
 	       </div>
+               <div id="menu">
+		       <div class="item">
+		       <span> Element 1  </span>
+		       <span> Element 2   </span>
+                       </div>
+
+		       <div class="publicité">
+		       <span>Element 3 </span>
+		       <span>Element 4 </span>
+		       </div>
+	       </div>
+
+	       <div id="contenu">
+		       <span> Introduction au contenu de page web </span>
+	       </div>
+
+	       <blockquote>
+		       <p id="myP"> Ceci est un pseudo paragraphe !  </p>
+	       </blockquote>
+
 	<!--  <script type="text/javascript" src="test2.js">-->
 	      <script>
 		      var link = document.getElementById("mylink");
@@ -19,6 +53,31 @@
                       
                       alert(href);
                       link.setAttribute('href', 'https://www.google.fr/');
+                      document.getElementById("mydiv").className = 'blue size';
+
+var classes =  document.getElementById('mydiv').className;
+                      var classesNew = [];
+                      classes = classes.split(' ');
+
+                      for (var i = 0, c = classes.length;i<c;i++)
+	                 if (classes[i]) classesNew.push(classes[i]);
+                      alert(classesNew);
+
+                      var div = document.getElementById('mydiv');
+                      alert(div.innerHTML);
+var query = document.querySelector('#menu .item span');
+var queryall =  document.querySelectorAll('#menu .item span');
+
+alert(query.innerHTML);
+alert(queryall.length);
+alert(queryall[0].innerHTML +  '-' + queryall[1].innerHTML);
+document.getElementById('mydiv').innerHTML = '<blocquote> je met une citation ala place du paragraphe </blockquote>';
+
+document.getElementById('mydiv').innerHTML += ' Et <strong> une portion mise en Emphase </strong>.';
+var paragraph = document.getElementById('myP');
+var blockquote = paragraph.parentNode;
+
+alert(paragraph.nodeType + '\n\n' + paragraph.nodeName.toLowerCase());
        	      </script>
        </body>
 </html>
