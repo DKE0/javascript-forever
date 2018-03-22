@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+	  <meta charset="utf-8" />
+          <title> Unfuck the world </title>	  
+	</head>	
+	<body>
+		<div>
+		      <p id="myP"> Un peu de texte, <a> un lien </a> et <strong> une portion mise en emphase  </strong></p>
+	       	</div>
+	<script>
+	       var paragraph = document.getElementById('myP');
+               var first =  paragraph.firstChild;
+               var last = paragraph.lastChild;
+               var children =  paragraph.childNodes;
+
+              // alert(first.nodeName.toLowerCase());
+              // alert(last.nodeName.toLowerCase());
+               
+               alert(first.nodeValue);
+               alert(last.firstChild.data);
+              /* for (var i = 0, c = children.length; i< c ; i++)
+               { 	
+                     if (children[i].nodeType === 1) alert(children[i].firstChild.data);
+		     else alert(children[i].data);
+	       }*/
+	       alert ('voici une autre propriétés des plus cool');
+               var next= first.nextSibling;
+    
+               alert(next.firstChild.data);
+               
+              /*** while(last)
+	       {
+                    if (last.nodeType === 1) alert(last.firstChild.data);
+		       else alert(last.data);
+
+		       last =  last.previousSibling;
+	       }***/
+
+               var link = document.createElement("a");
+                   link.id = 'sdz_link';
+                   link.href =  'https://www.google.fr';
+                   link.title = 'Découvrez  GOOGLE le dieu de l\'information ';
+                   link.setAttribute('tabindex', '10');
+                   document.getElementById('myP').appendChild(link);
+               // from here  we still not get anything new and I have trouble understanding why 
+               // but I finnaly get why: everything work fine but there was not any visual changes
+               // untill we add a textNode 
+               var linktext =  document.createTextNode('google is the best');
+                   link.appendChild(linktext);
+               var span = document.createElement('span');
+               document.body.appendChild(span);
+               span.innerHTML = 'Du texte en plus !';
+               
+              /* var para = document.createElement('p');
+               var paratext =  document.createTextNode('les pandas roux sont géniaux 
+		       C\'est mignon et tout doux');
+                   para.appendChild(paratext);
+                   document.body.appendChild(para);*/
+               var hr1 =  document.createElement('hr');
+               var hr2 =  hr1.cloneNode(false);
+
+               var para1 = document.getElementById('myP');
+               var para2 = para1.cloneNode(true);
+
+               para1.parentNode.appendChild(para2);
+               var link2 =  document.getElementByTagName('a')[0];
+               var newLabel = document.createTextNode('et un hyperlien');
+                   link2.replaceChild(newLabel, link.firstChild);
+               
+	</script>
+       	</body>
+</html>
